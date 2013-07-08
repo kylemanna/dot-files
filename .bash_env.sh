@@ -2,7 +2,7 @@
 # Helper functions that maintain the env cache
 #
 
-if [ -z "$ENV_CACHE"]; then
+if [ -z "$ENV_CACHE" ]; then
     export ENV_CACHE="$HOME/.cache/env"
 fi
 
