@@ -37,6 +37,9 @@ env-set() {
         #echo "Unsetting $1"
         sed -i "/^$1=/d" "$ENV_CACHE"
     else
+        # Don't re-write file if it's already valid
+        grep -q "^$1=$2\$" "$ENV_CACHE" && return 0
+
         #echo "Setting $1=$2"
         tmp="$(mktemp "$ENV_CACHE.XXXXXXX")"
         awk "/^$1=/ { sub(\"^.*$\",\"$1=$2\"); found=1; }; { print } END{ if (found != 1) {print \"$1=$2\"} }" "$ENV_CACHE" > "$tmp"
