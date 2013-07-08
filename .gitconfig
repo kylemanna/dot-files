@@ -1,0 +1,15 @@
+[user]
+	name = Kyle Manna
+	email = kyle@kylemanna.com
+
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = auto
+
+[push]
+	default = simple
+
+[log]
+	decorate = short
