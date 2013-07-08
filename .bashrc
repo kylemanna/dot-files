@@ -117,9 +117,13 @@ export CCACHE_DIR=$HOME/.cache/ccache
 
 if [ -r "$HOME/.bash_env.sh" ]; then
     source "$HOME/.bash_env.sh"
-fi
 
-if [ "$DISPLAY" = ":0.0" -a -n "$SSH_AUTH_SOCK" -a -z "$TMUX" -a -n "$ENV_CACHE" ]; then
-    env-set SSH_AUTH_SOCK "$SSH_AUTH_SOCK"
-    env-set GPG_AGENT_INFO "$GPG_AGENT_INFO"
+    if [ "$DISPLAY" = ":0.0" -a -z "$TMUX" ]; then
+        if [ -n "$SSH_AUTH_SOCK" ]; then
+            env-set SSH_AUTH_SOCK "$SSH_AUTH_SOCK"
+        fi
+        if [ -n "$GPG_AGENT_INFO" ]; then
+            env-set GPG_AGENT_INFO "$GPG_AGENT_INFO"
+        fi
+    fi
 fi
