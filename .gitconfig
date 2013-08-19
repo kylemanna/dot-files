@@ -13,3 +13,9 @@
 
 [log]
 	decorate = short
+[core]
+	filemode = true
+[grep]
+	lineNumber = 1
+[help]
+	autocorrect = 1
