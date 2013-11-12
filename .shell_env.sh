@@ -58,7 +58,8 @@ env-get() {
 
 # src: http://raim.codingfarm.de/blog/2013/01/30/tmux-update-environment/
 tmux() {
-    tmux=$(type -fp tmux)
+    [ "$SHELL" = "/bin/bash" ] && tmux=$(type -fp tmux)
+    [ "$SHELL" = "/bin/zsh" ] && tmux=$(where -p tmux)
     case "$1" in
         up)
             local v
@@ -73,7 +74,7 @@ tmux() {
                     eval export $v
                     echo "Export: $v"
                 fi
-            done < <(tmux show-environment)
+            done < <($tmux show-environment)
             ;;
         *)
             $tmux "$@"
