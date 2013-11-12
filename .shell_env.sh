@@ -58,7 +58,7 @@ env-get() {
 
 # src: http://raim.codingfarm.de/blog/2013/01/30/tmux-update-environment/
 tmux() {
-    local tmux=$(type -fp tmux)
+    tmux=$(type -fp tmux)
     case "$1" in
         up)
             local v
@@ -80,3 +80,11 @@ tmux() {
             ;;
     esac
 }
+
+export EDITOR=vim
+export PATH=$HOME/bin:$PATH
+export LESS=-Ri
+export PYTHONSTARTUP=$HOME/.pythonstartup
+export USE_CCACHE=1
+export CCACHE_DIR=$HOME/.cache/ccache
+

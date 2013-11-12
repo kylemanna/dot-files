@@ -108,22 +108,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export EDITOR=vim
-export PATH=$HOME/bin:$PATH
-export LESS=-Ri
-export PYTHONSTARTUP=$HOME/.pythonstartup
-export USE_CCACHE=1
-export CCACHE_DIR=$HOME/.cache/ccache
-
-if [ -r "$HOME/.bash_env.sh" ]; then
-    source "$HOME/.bash_env.sh"
-
-    if [ "$DISPLAY" = ":0.0" -a -z "$TMUX" ]; then
-        if [ -n "$SSH_AUTH_SOCK" ]; then
-            env-set SSH_AUTH_SOCK "$SSH_AUTH_SOCK"
-        fi
-        if [ -n "$GPG_AGENT_INFO" ]; then
-            env-set GPG_AGENT_INFO "$GPG_AGENT_INFO"
-        fi
-    fi
+if [ -r "$HOME/.shell_env.sh" ]; then
+    source "$HOME/.shell_env.sh"
 fi
