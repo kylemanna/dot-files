@@ -58,8 +58,13 @@ env-get() {
 
 # src: http://raim.codingfarm.de/blog/2013/01/30/tmux-update-environment/
 tmux() {
-    [ "$SHELL" = "/bin/bash" ] && tmux=$(type -fp tmux)
-    [ "$SHELL" = "/bin/zsh" ] && tmux=$(where -p tmux)
+
+    if [ "$SHELL" != "${SHELL/zsh/}" ]; then
+        tmux=$(where -p tmux)
+    else
+        tmux=$(type -fp tmux)
+    fi
+
     case "$1" in
         up)
             local v
