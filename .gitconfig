@@ -8,9 +8,6 @@
 	branch = auto
 	ui = auto
 
-[push]
-	default = simple
-
 [log]
 	decorate = short
 [core]
@@ -19,3 +16,5 @@
 	lineNumber = 1
 [help]
 	autocorrect = 1
+[push]
+	default = current
