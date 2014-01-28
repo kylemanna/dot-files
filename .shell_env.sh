@@ -74,8 +74,8 @@ tmux() {
                     unset ${v/#-/}
                 else
                     # Add quotes around the argument
-                    v=${v/=/=\"}
-                    v=${v/%/\"}
+                    v="${v/=/=\"}"
+                    v="${v/%/\"}"
                     eval export $v
                     echo "Export: $v"
                 fi
