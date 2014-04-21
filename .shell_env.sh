@@ -94,3 +94,4 @@ export PYTHONSTARTUP=$HOME/.pythonstartup
 export USE_CCACHE=1
 export CCACHE_DIR=$HOME/.cache/ccache
 
+[ -r "$HOME/.shell_env.local.sh" ] && source "$HOME/.shell_env.local.sh"
