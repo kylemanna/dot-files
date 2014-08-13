@@ -59,3 +59,4 @@ set t_Co=256
 " Add support for fssh ui_copy/ui_paste
 vmap <C-c> :w !ui_copy<cr><cr>
 nmap <C-v> :r !ui_paste<cr><cr>
+set expandtab
