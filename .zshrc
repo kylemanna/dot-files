@@ -28,3 +28,20 @@ alias ls='ls --color'
 if [ -f "$HOME/.shell_env.sh" ]; then
 	source $HOME/.shell_env.sh
 fi
+
+# Set title bar
+# http://zsh.sourceforge.net/FAQ/zshfaq03.html#l23
+ztitle() {
+	[[ -t 1 ]] || return
+	case $TERM in
+		*xterm*|rxvt|(dt|k|E)term) print -Pn "\e]2;$@\a"
+			;;
+	esac
+}
+
+chpwd() {
+    ztitle $(print -Pn "%n@%M: %~")
+}
+
+# Call on zsh start-up to set initial title bar
+chpwd
