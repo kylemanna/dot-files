@@ -94,6 +94,4 @@ export PYTHONSTARTUP=$HOME/.pythonstartup
 export USE_CCACHE=1
 export CCACHE_DIR=$HOME/.cache/ccache
 
-eval $(keychain --quiet --eval 2>/dev/null)
-
 [ -r "$HOME/.shell_env.local.sh" ] && source "$HOME/.shell_env.local.sh"
