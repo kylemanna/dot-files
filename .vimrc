@@ -60,3 +60,7 @@ set t_Co=256
 vmap <C-c> :w !ui_copy<cr><cr>
 nmap <C-v> :r !ui_paste<cr><cr>
 set expandtab
+set enc=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf8,prc
+
