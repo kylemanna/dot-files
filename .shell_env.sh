@@ -87,7 +87,7 @@ tmux() {
     esac
 }
 
-export EDITOR=vim
+export EDITOR=nvim
 export PATH=$HOME/bin:$PATH
 export LESS=-Ri
 export PYTHONSTARTUP=$HOME/.pythonstartup
@@ -95,5 +95,7 @@ export USE_CCACHE=1
 export CCACHE_DIR=$HOME/.cache/ccache
 export XZ_OPT="--threads=0"
 export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
+
+alias vim=nvim
 
 [ -r "$HOME/.shell_env.local.sh" ] && source "$HOME/.shell_env.local.sh"
