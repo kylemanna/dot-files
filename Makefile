@@ -8,7 +8,7 @@ ROOT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 # Symlink everyfile except *.git, README.md and Makefile
 SRC := $(shell find $(ROOT_DIR) -mindepth 1 \
 	\( -path '*/.git' -o -name README.md -o -name Makefile \) -prune \
-	-o -type f -print)
+	-o \( -type f -o -type l \) -print)
 
 DST := $(SRC:$(ROOT_DIR)/%=$(HOME)/%)
 
