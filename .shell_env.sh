@@ -60,7 +60,7 @@ env-get() {
 tmux() {
 
     if [ "$SHELL" != "${SHELL/zsh/}" ]; then
-        tmux=$(where -p tmux)
+        tmux=$(whence -p tmux)
     else
         tmux=$(type -fp tmux)
     fi
