@@ -97,5 +97,6 @@ export XZ_OPT="--threads=0"
 export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
 
 alias vim=nvim
+alias vi=nvim
 
 [ -r "$HOME/.shell_env.local.sh" ] && source "$HOME/.shell_env.local.sh"
