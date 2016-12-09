@@ -67,3 +67,4 @@ set fileencodings=ucs-bom,utf8,prc
 set mouse=r
 
 source ~/.config/nvim/cscope_maps.vim
+set cscoperelative
