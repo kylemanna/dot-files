@@ -11,10 +11,12 @@ end
 
 # Command OpenOCD to halt, build the source, load it, then continue
 define reload
-    mon reset halt
+    #mon reset halt
+    mon halt
     make
     load
-    mon reset init
+    #mon reset init
+    mon reset
     continue
 end
 
