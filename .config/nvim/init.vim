@@ -14,30 +14,20 @@ set nobackup
 
 command Indent !indent %
 
-"set viminfo='0
-
 set linebreak
 set display+=lastline
 set vb
 
-" Uncomment the following to have Vim jump to the last position when
-" reopening a file
-"if has("autocmd")
-"  autocmd BufReadPost * 
-"              \if line("'\"") > 1 && line("'\"") <= line("$")
-"              \| exe 'normal! g`"zvzz'
-"              \| endif
-"endif
-
-" Uncomment the following to have Vim load indentation rules and plugins
-" according to the detected filetype.
 if has("autocmd")
+  " Uncomment the following to have Vim load indentation rules and plugins
+  " according to the detected filetype.
   filetype plugin indent on
+    
+  " Uncomment the following to have Vim jump to the last position when
+  " reopening a file
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-if has("autocmd")
-    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
 
 " Linux kernel:
 "    :set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
