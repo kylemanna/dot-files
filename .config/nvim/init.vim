@@ -56,8 +56,8 @@ let g:vim_markdown_folding_disabled=1
 set t_Co=256
 
 " Add support for fssh ui_copy/ui_paste
-vmap <C-c> :w !ui_copy<cr><cr>
-nmap <C-v> :r !ui_paste<cr><cr>
+"vmap <C-c> :w !ui_copy<cr><cr>
+"nmap <C-v> :r !ui_paste<cr><cr>
 set expandtab
 set enc=utf-8
 set fileencoding=utf-8
