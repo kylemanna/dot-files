@@ -1,6 +1,7 @@
 #set demangle-style none
 set history save
 set history filename ~/.gdb_history
+set print pretty on
 
 #
 # Embedded Utilities
@@ -18,6 +19,10 @@ define reload
     #mon reset init
     mon reset
     continue
+end
+
+define reset
+    mon reset
 end
 
 # Recover an annoying Kinetis board
@@ -152,4 +157,3 @@ define kl27_dump
     printf "DMA_DSR_BCR3:\t0x%08x\n", *(0x40008138)
     printf "DMA_DCR3:\t0x%08x\n", *(0x4000813c)
 end
-
