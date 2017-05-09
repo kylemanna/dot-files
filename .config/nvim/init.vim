@@ -42,6 +42,7 @@ set backspace=indent,eol,start
 " http://wiki.python.org/moin/Vim
 set background=dark
 au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4 cc=79
+au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Kind of dangerous...
 set modeline
