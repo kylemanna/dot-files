@@ -94,9 +94,13 @@ export PYTHONSTARTUP=$HOME/.pythonstartup
 export USE_CCACHE=1
 export CCACHE_DIR=$HOME/.cache/ccache
 export XZ_OPT="--threads=0"
-export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
 
 alias vim=nvim
 alias vi=nvim
+
+# Use GPG Agent if one isn't defined
+if [ -z ${SSH_AUTH_SOCK} ]; then
+    export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+fi
 
 [ -r "$HOME/.shell_env.local.sh" ] && source "$HOME/.shell_env.local.sh"
