@@ -71,3 +71,4 @@ source ~/.config/nvim/cscope_maps.vim
 
 set exrc
 set secure
+autocmd BufRead,BufNewFile Jenkinsfile set ft=groovy
