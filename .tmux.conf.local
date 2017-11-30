@@ -263,3 +263,4 @@ set -g history-limit 10000
 
 # Disable the repetition for the tmux prefix
 set-option -g repeat-time 0
+set-window-option -g aggressive-resize 1
