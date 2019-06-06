@@ -88,12 +88,13 @@ tmux() {
 }
 
 export EDITOR=nvim
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin/:$PATH
 export LESS=-Ri
 export PYTHONSTARTUP=$HOME/.pythonstartup
 export USE_CCACHE=1
 export CCACHE_DIR=$HOME/.cache/ccache
 export XZ_OPT="--threads=0"
+export S_COLORS=auto
 
 alias vim=nvim
 alias vi=nvim
