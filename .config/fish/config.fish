@@ -5,7 +5,10 @@ set -U fish_greeting ""
 if status is-interactive
     # Commands to run in interactive sessions can go here
     #starship init fish | source
-    zoxide init fish | source
+
+    if type -q zoxied
+        zoxide init fish | source
+    end
 
     [ -z "$SSH_AUTH_SOCK" ] && export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 end
