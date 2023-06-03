@@ -22,7 +22,6 @@ end
 #
 alias vim=nvim
 alias vi=nvim
-export EDITOR=nvim
 
 export LESS=-RFXi
 export USE_CCACHE=1
@@ -30,6 +29,7 @@ export CCACHE_DIR=$HOME/.cache/ccache
 export XZ_OPT="--threads=0"
 export S_COLORS=auto
 
-fish_add_path -m $HOME/.cargo/bin
-fish_add_path -m $HOME/.local/bin
-fish_add_path -m $HOME/bin
+fish_add_path -gm \
+    $HOME/.cargo/bin \
+    $HOME/.local/bin \
+    $HOME/bin \
