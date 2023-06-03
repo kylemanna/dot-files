@@ -1,20 +1,54 @@
 [user]
-	name = Kyle Manna
-	email = kyle@kylemanna.com
+    name = Kyle Manna
+    email = kyle@kylemanna.com
 
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	ui = auto
+    diff = auto
+    status = auto
+    branch = auto
+    ui = auto
 
 [log]
-	decorate = short
+    decorate = short
 [core]
-	filemode = true
+    filemode = true
 [grep]
-	lineNumber = 1
+    lineNumber = 1
 [help]
-	autocorrect = 1
+    autocorrect = 1
 [push]
-	default = current
+    default = current
+[pull]
+    ff = only
+[submodule]
+    recurse = true
+    fetchJobs = 8
+[fetch]
+    parallel = 8
+[init]
+    defaultBranch = main
+
+# Avoid using `git lfs` at all costs. Sadness follows some time later
+#[filter "lfs"]
+#	clean = git-lfs clean -- %f
+#	smudge = git-lfs smudge -- %f
+#	process = git-lfs filter-process
+#	required = true
+
+# Config for git-delta
+#
+[core]
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[add.interactive]
+    useBuiltin = false # required for git 2.37.0
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    # For some reason the dark greens are nearly grey and impossible to see.
+    true-color = never
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
+# End git-delta config
