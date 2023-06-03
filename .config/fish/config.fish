@@ -10,6 +10,9 @@ if status is-interactive
     [ -z "$SSH_AUTH_SOCK" ] && export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 end
 
+if type -q delta
+    set -g GIT_PAGER delta
+end
 
 #
 # Editor
