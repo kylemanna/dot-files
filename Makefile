@@ -18,7 +18,7 @@ all: $(DST)
 
 .SECONDEXPANSION:
 $(DST): $$(patsubst $(HOME)/%,$(ROOT_DIR)/%, $$@) | $$(@D)
-	ln -sf $< $@
+	ln -srf $< $@
 
 $(DST_DIRS):
 	mkdir -p $@
