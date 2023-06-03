@@ -299,3 +299,11 @@ set-option -g repeat-time 0
 set-window-option -g aggressive-resize 1
 set -g history-limit 10000
 tmux_conf_theme_status_left_bg='#ffff00,#d70000,#00afff'  # yellow, red, white blue
+#set -ga terminal-overrides ",xterm-256color:Tc"
+#set -as terminal-features ",xterm-256color:RGB"
+tmux_conf_theme_24b_colour=true
+
+# Run the shell in a new control group  scope. Fixes issues where a single
+# command blows up memory usage and the entire tmux session is killed.  Expects
+# user systemd daemon to run it's only slice.
+set -g default-command "systemd-run --user --shell --quiet --slice-inherit --scope"
