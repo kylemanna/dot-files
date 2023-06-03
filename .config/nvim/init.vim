@@ -90,7 +90,8 @@ endif
 "" Auto-format *.rs (rust) files prior to saving them
 "autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
 
-lua <<EOF
+if has('lua') && luaeval('require("lspconfig")') != 0
+    lua <<EOF
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
@@ -140,5 +141,5 @@ require('lspconfig')['rust_analyzer'].setup{
       ["rust-analyzer"] = {}
     }
 }
-
 EOF
+endif
