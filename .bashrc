@@ -8,6 +8,8 @@ case $- in
       *) return;;
 esac
 
+[ -x "$(type -P fish)" -a -z "$BASH_EXECUTION_STRING" -a -z "$NO_FISH" ] && exec fish
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
