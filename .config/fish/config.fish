@@ -6,7 +6,7 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
     #starship init fish | source
 
-    if type -q zoxied
+    if type -q zoxide
         zoxide init fish | source
     end
 
