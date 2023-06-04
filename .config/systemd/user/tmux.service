@@ -1,0 +1,15 @@
+# Workaround systemd-oomd killer killing tmux
+[Unit]
+Description=Tmux Server
+
+[Service]
+ExecStart=/usr/bin/tmux -D
+OOMPolicy=continue
+OOMScoreAdjust=-800
+# Slice created here to allow systemd-oomd to kill scopes under this slice
+# instead of the entire user session if one tmux shell gets greedy.
+Slice=tmux.slice
+Restart=always
+
+[Install]
+WantedBy=default.target
