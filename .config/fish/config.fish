@@ -10,7 +10,7 @@ if status is-interactive
         zoxide init fish | source
     end
 
-    [ -z "$SSH_AUTH_SOCK" ] && export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+    [ -z "$SSH_AUTH_SOCK" ] && set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 end
 
 if type -q delta
@@ -23,11 +23,13 @@ end
 alias vim=nvim
 alias vi=nvim
 
-export LESS=-RFXi
-export USE_CCACHE=1
-export CCACHE_DIR=$HOME/.cache/ccache
-export XZ_OPT="--threads=0"
-export S_COLORS=auto
+set -x LESS -RFXi
+set -x USE_CCACHE 1
+set -x XZ_OPT "--threads 0"
+set -x S_COLORS auto
+
+set -x CCACHE_DIR "$HOME/.cache/ccache"
+set -x MAKEFLAGS -j(nproc)
 
 fish_add_path -gm \
     $HOME/.cargo/bin \
