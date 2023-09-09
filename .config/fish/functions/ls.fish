@@ -1,9 +1,9 @@
-type -q exa
-set exa_available $status
+type -q lsd
+set lsd_available $status
 
-function ls --wraps='exa -s modified' --description 'alias ls exa -s modified'
-  if test $exa_available -eq 0
-    exa -s modified $argv
+function ls --wraps='lsd' --description 'LS Deluxe'
+  if test $lsd_available -eq 0
+    lsd -t $argv
   else
     eval (type -P ls) --color -t $argv
   end
