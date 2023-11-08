@@ -35,8 +35,7 @@ dst:
 dst_dirs:
 	$(info DST_DIRS = $(DST_DIRS))
 
-#migrate: $(filter $(wildcard $(DROP_SYMLINKS)),$(DROP_SYMLINKS))
-migrate: $(filter $(DROP_SYMLINKS),$(shell test -L $(DROP_SYMLINKS) && echo $(DROP_SYMLINKS)))
-	@for file in $^; do \
-		mv -v $$(readlink -f $$file) $$file; \
+migrate:
+	@for file in "$(DROP_SYMLINKS)"; do \
+		test -L "$$file" && mv -v $$(readlink -f $$file) "$$file" || continue; \
 	done
