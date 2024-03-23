@@ -143,3 +143,6 @@ require('lspconfig')['rust_analyzer'].setup{
 }
 EOF
 endif
+
+" Fix goofy YAML indent when commenting
+autocmd BufEnter *.yaml,*.yml :set indentkeys-=0#
