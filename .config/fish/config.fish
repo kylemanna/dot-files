@@ -9,8 +9,10 @@ if status is-interactive
     if type -q zoxide
         zoxide init fish | source
     end
+end
 
-    [ -z "$SSH_AUTH_SOCK" ] && set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+if test -z "$SSH_AUTH_SOCK"; and type -q gpgconf
+    set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 end
 
 if type -q delta
